@@ -14,9 +14,9 @@ namespace TaobaoArea
     {
         static void Main(string[] args)
         {
-            //AnalysisProvince();
-            //AnalysisCity();
-            //PullTownInfo();
+            AnalysisProvince();
+            AnalysisCity();
+            PullTownInfo();
             Console.WriteLine("All Done");
             Console.ReadLine();
         }
