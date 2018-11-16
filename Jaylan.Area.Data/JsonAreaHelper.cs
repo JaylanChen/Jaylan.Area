@@ -61,9 +61,13 @@ namespace Jaylan.Area.Data
             var projectIndex = currentPath.IndexOf(projectName, StringComparison.OrdinalIgnoreCase);
             var jsonPath = Path.Combine(currentPath.Substring(0, projectIndex), projectName + "\\Jaylan.Area.Data\\DataBase\\JsonArea.json");
 
-            var jsonAreaListStr = JsonConvert.SerializeObject(areaList);
-            File.WriteAllText(jsonPath, jsonAreaListStr, Encoding.UTF8);
+            var setting = new JsonSerializerSettings
+            {
+                ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
+            };
+            var jsonAreaListStr = JsonConvert.SerializeObject(areaList, setting);
 
+            File.WriteAllText(jsonPath, jsonAreaListStr, Encoding.UTF8);
         }
     }
 }
