@@ -7,7 +7,7 @@ using Jaylan.Area.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace TaobaoArea
+namespace Taobao.Area
 {
     class Program
     {
