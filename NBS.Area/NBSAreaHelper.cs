@@ -220,7 +220,8 @@ namespace NBS.Area
                         var currentRegion = new NBS_Area
                         {
                             ParentCode = parentArea.Code,
-                            Level = parentArea.Level + 1
+                            Level = parentArea.Level + 1,
+                            Status = 1
                         };
                         var name = areaTds[1].InnerText.Trim();
                         if (areas == null)
@@ -242,6 +243,7 @@ namespace NBS.Area
                         if (name == "市辖区")
                         {
                             name = parentArea.Name;
+                            currentRegion.Status = 2;//改名了，直辖市 的二级区域 从市辖区 改为父级名称
                         }
                         var href = area.Attributes["href"].Value;
                         var code = GetCodeByHref(href);
@@ -249,7 +251,6 @@ namespace NBS.Area
                         currentRegion.Name = name;
                         currentRegion.Code = code;
                         currentRegion.ChildNodeUrl = GetHrefFullUrl(parentArea.ChildNodeUrl, href);
-                        currentRegion.Status = 2;//改名了，直辖市 的二级区域 从市辖区 改为父级名称
                         if (tempAreaList.Any(a => a.Code == currentRegion.Code))
                         {
                             continue;
