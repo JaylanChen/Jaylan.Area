@@ -16,6 +16,47 @@ namespace Jaylan.Area.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
+            modelBuilder.Entity("Jaylan.Area.Data.Mi_Area", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .IsUnicode(false);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<bool>("IsDel");
+
+                    b.Property<int>("Level");
+
+                    b.Property<int>("MiId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .IsUnicode(true);
+
+                    b.Property<string>("ParentCode")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .IsUnicode(false);
+
+                    b.Property<int>("ParentId");
+
+                    b.Property<int>("Status");
+
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(16)
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Mi_Area");
+                });
+
             modelBuilder.Entity("Jaylan.Area.Data.NBS_Area", b =>
                 {
                     b.Property<int>("Id")
