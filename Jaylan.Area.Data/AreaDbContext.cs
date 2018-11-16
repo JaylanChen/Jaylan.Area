@@ -11,6 +11,11 @@ namespace Jaylan.Area.Data
         /// </summary>
         public DbSet<NBS_Area> NBS_Area { get; set; }
 
+        /// <summary>
+        /// Taobao Area
+        /// </summary>
+        public DbSet<Taobao_Area> Taobao_Area { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,6 +37,13 @@ namespace Jaylan.Area.Data
             modelBuilder.Entity<NBS_Area>().Property(e => e.ZipCode).HasMaxLength(16).IsUnicode(false).IsRequired(false);
             modelBuilder.Entity<NBS_Area>().Property(c => c.ChildNodeUrl).HasMaxLength(512).IsUnicode(false);
             modelBuilder.Entity<NBS_Area>().Property(c => c.CreationTime);
+
+
+            modelBuilder.Entity<Taobao_Area>().ToTable("Taobao_Area").HasKey(c => c.Id);
+            modelBuilder.Entity<Taobao_Area>().Property(c => c.Name).IsRequired().HasMaxLength(64).IsUnicode().IsRequired();
+            modelBuilder.Entity<Taobao_Area>().Property(c => c.Code).HasMaxLength(32).IsUnicode(false).IsRequired();
+            modelBuilder.Entity<Taobao_Area>().Property(c => c.ParentCode).HasMaxLength(32).IsUnicode(false).IsRequired();
+            modelBuilder.Entity<Taobao_Area>().Property(e => e.ZipCode).HasMaxLength(16).IsUnicode(false).IsRequired(false);
 
         }
     }
