@@ -9,7 +9,7 @@ namespace NBS.Area
     {
         private static readonly HttpItem _httpItem = new HttpItem
         {
-            UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0",
+            UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36 Edg/85.0.564.51",
             Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         };
         private static readonly HttpHelper _httpHelper = new HttpHelper();
